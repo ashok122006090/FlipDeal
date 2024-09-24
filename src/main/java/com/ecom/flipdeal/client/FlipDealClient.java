@@ -1,5 +1,6 @@
 package com.ecom.flipdeal.client;
 
+
 import com.ecom.flipdeal.dto.ExchangeRate;
 import com.ecom.flipdeal.dto.Product;
 import com.ecom.flipdeal.utils.HttpCaller;
@@ -16,6 +17,7 @@ public class FlipDealClient {
     private static final String EXCHANGE_RATES_API_URL = "https://mock.coverself.net/rest/hiring/exchange-rates";
     private static final OkHttpClient client = new OkHttpClient();
 
+    //Rest Template also
     // Fetch product details from the API
     public static List<Product> fetchProductDetails() throws IOException {
         String response = HttpCaller.get(PRODUCTS_API_URL, null);
@@ -36,26 +38,5 @@ public class FlipDealClient {
     }
 
     // Convert product prices to INR using the exchange rates
-    public static void convertPricesToINR(List<Product> products, Map<String, Double> exchangeRates) {
-        // Check if INR is part of exchangeRates
-        Double inrExchangeRate = exchangeRates.get("INR");
 
-        if (inrExchangeRate == null) {
-            System.out.println("Exchange rate for INR not found.");
-            return;
-        }
-
-        // Iterate over each product and convert the price to INR
-        for (Product product : products) {
-            String currency = product.getCurrency();  // Get the product's currency
-            Double exchangeRate = exchangeRates.get(currency);  // Get the exchange rate for the product's currency
-
-            if (exchangeRate != null) {
-                double priceInInr = product.getPrice() * inrExchangeRate / exchangeRate;  // Convert to INR
-                product.setPrice(priceInInr);  // Update the price to INR
-            } else {
-                System.out.println("Exchange rate for currency " + currency + " is not available.");
-            }
-        }
-    }
 }

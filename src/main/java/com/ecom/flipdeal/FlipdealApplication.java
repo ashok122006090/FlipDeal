@@ -14,8 +14,8 @@ import java.util.Map;
 @SpringBootApplication
 public class FlipdealApplication {
 
-	public static void main(String[] args) throws IOException {
-		SpringApplication.run(FlipdealApplication.class, args);
+    public static void main(String[] args) throws IOException {
+        SpringApplication.run(FlipdealApplication.class, args);
 //	List<Product> list = FlipDealClient.fetchProductDetails();
 //	for (Product product : list) {
 //		System.out.println(product);
@@ -24,5 +24,5 @@ public class FlipdealApplication {
 //		ExchangeRate exchangeRate = FlipDealClient.fetchExchangeRates();
 //		System.out.println(exchangeRate);
 //
-	}
+    }
 }
