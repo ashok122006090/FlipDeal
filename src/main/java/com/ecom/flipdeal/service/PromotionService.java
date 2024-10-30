@@ -46,7 +46,7 @@ public class PromotionService {
 
 
     private PromotionStrategy getStrategy(String promotiontype) {
-        promotiontype = "promotionSetA";
+        //promotiontype = "promotionSetA";
         // map
         if (promotionStrategies.containsKey(promotiontype)) {
             return promotionStrategies.get(promotiontype);
